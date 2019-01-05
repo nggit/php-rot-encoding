@@ -35,7 +35,7 @@
     // Isla de Muerta. It's an island that cannot be found except by those who already know where it is.
     echo '<br />';
 
-#### What if the pin does't match?
+### What if the pin does't match?
     echo $rot1->decode(124);
     // Hh ertoaen d uvaoyc mwscfrhi r eisoan eoittfsamlsr eh ed ae dr d lwha e rhoda keosyhaes repsttCi ?oBt
     // bndsaaao arinsxu p fbcntteoyed tentd ah o bnatc rw.ihnie teos wu l edI Ma es ris.antts n 'al
@@ -43,4 +43,4 @@
 
     ?>
 
-I do not guarantee this to be secure, though. Use at your own risk!
+I do not guarantee this to be secure, though. Use it at your own risk!

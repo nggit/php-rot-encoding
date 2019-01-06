@@ -35,10 +35,10 @@
     // Isla de Muerta. It's an island that cannot be found except by those who already know where it is.
     echo '<br />';
 
-### What if the pin does't match?
+### What if the pin doesn't match?
     echo $rot1->decode(124);
     // Hh ertoaen d uvaoyc mwscfrhi r eisoan eoittfsamlsr eh ed ae dr d lwha e rhoda keosyhaes repsttCi ?oBt
-    // bndsaaao arinsxu p fbcntteoyed tentd ah o bnatc rw.ihnie teos wu l edI Ma es ris.antts n 'al
+    //  bndsaaao arinsxu p fbcntteoyed tentd ah o bnatc rw.ihnie teos wu l edI Ma es ris.antts n 'al
     exit;
 
     ?>

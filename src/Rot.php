@@ -31,11 +31,11 @@ class Rot
             $str_len        = strlen($this->encoded);
             $pin_str[$i]    = $pin_str[$i] + 2;
             $split_len      = ceil($str_len / $pin_str[$i]);
+            $str_padded_len = $split_len * $pin_str[$i];
+            $this->encoded .= str_repeat("\0", $str_padded_len - $str_len);
             for ($j = 0; $j < $split_len; $j++) {
                 $arr[$j] = ''; // define offset
             }
-            $str_padded_len = $split_len * $pin_str[$i];
-            $this->encoded .= str_repeat("\0", $str_padded_len - $str_len);
             for ($k = 0; $k < $str_padded_len; $k++) { 
                 $arr[$k % $split_len] .= $this->encoded[$k];
             }

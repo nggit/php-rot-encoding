@@ -10,60 +10,62 @@ class Rot
 {
     public $str, $encoded, $pin;
 
-    public function __construct($str, $pin = 0)
+    public function __construct($str, $pin = array(0))
     {
         $this->str = $str;
         $this->pin = $pin;
     }
 
-    public function encode($pin = null)
+    public function encode()
     {
-        if (isset($pin)) {
-            $this->pin = $pin;
+        $numargs = func_num_args();
+        if ($numargs == 1) {
+            $this->pin = str_split((string) func_get_arg(0));
+        } elseif ($numargs > 1) {
+            $this->pin = func_get_args();
         }
-        $pin_str       = (string) $this->pin;
-        $pin_len       = strlen($pin_str);
+        $pin_arr       = $this->pin;
         $this->encoded = $this->str;
-        $i             = 0;
-        while ($i < $pin_len) {
+        foreach ($pin_arr as $pin_num) {
             $this->encoded .= "\3";
             $arr            = array();
             $str_len        = strlen($this->encoded);
-            $pin_str[$i]    = ($pin_str[$i] + 2) * ceil($str_len / 10);
-            $split_len      = ceil($str_len / $pin_str[$i]);
-            $str_padded_len = $split_len * $pin_str[$i];
+            $pin_num       += 2;
+            $split_len      = ceil($str_len / $pin_num);
+            $str_padded_len = $split_len * $pin_num;
             $this->encoded .= str_repeat("\0", $str_padded_len - $str_len);
-            for ($j = 0; $j < $split_len; $j++) {
-                $arr[$j] = ''; // define offset
+            for ($i = 0; $i < $split_len; $i++) {
+                $arr[$i] = ''; // define offset
             }
-            for ($k = 0; $k < $str_padded_len; $k++) { 
-                $arr[$k % $split_len] .= $this->encoded[$k];
+            for ($j = 0; $j < $str_padded_len; $j++) { 
+                $arr[$j % $split_len] .= $this->encoded[$j];
             }
             $this->encoded = implode($arr);
-            $i++;
         }
         return $this->encoded;
     }
 
-    public function decode($pin = null)
+    public function decode()
     {
-        if ($pin === null) {
+        $numargs = func_num_args();
+        if ($numargs == 1) {
+            $pin = str_split((string) func_get_arg(0));
+        } elseif ($numargs > 1) {
+            $pin = func_get_args();
+        } else {
             $pin = $this->pin;
         }
-        $pin_str = (string) $pin;
-        $pin_len = strlen($pin_str);
+        $pin_arr = $pin;
         $str     = isset($this->encoded) ? $this->encoded : $this->str;
-        $i       = $pin_len;
-        while ($i > 0) {
-            $i--;
-            $arr         = array();
-            $str_len     = strlen($str);
-            $pin_str[$i] = ($pin_str[$i] + 2) * ceil($str_len / 10);
-            for ($j = 0; $j < $pin_str[$i]; $j++) {
-                $arr[$j] = ''; // define offset
+        while ($pin_num = array_pop($pin_arr)) {
+            $arr      = array();
+            $str_len  = strlen($str);
+            $pin_num += 2;
+            for ($i = 0; $i < $pin_num; $i++) {
+                $arr[$i] = ''; // define offset
             }
-            for ($k = 0; $k < $str_len; $k++) { 
-                $arr[$k % $pin_str[$i]] .= $str[$k];
+            for ($j = 0; $j < $str_len; $j++) { 
+                $arr[$j % $pin_num] .= $str[$j];
             }
             $str = substr(rtrim(implode($arr)), 0, -1);
         }

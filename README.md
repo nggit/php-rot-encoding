@@ -14,12 +14,14 @@
 
 ### Encode the string using pin 2154
     $encoded = $rot->encode(2154);
+    // Or separate by commas:
+    // $encoded = $rot->encode(2, 1, 5, 4);
     echo '<br />';
 
 ### Display the encoded string
     echo $encoded;
-    // Hsst hbboeeBp alxanI l. bi torsu.aiadrtftrotwoeu?c ina ata reoysh atkwancdost r au i 'twie nsr t ah
-    //  m idrfyesi vo d sneetr etp ey aeeednas fhtI eeMachhdnaowls er n l s hs nctdamea dnCihosderaoo
+    // Hsto tn te pe ke sde rns aetewos. sa deon l uor .aa  rsnthhacbtatapCdl xs edr a s rhscdMermdn oawyaeiyd
+    //  avih'id o ienayrthtta mtc?ff i but tohe u b deoBfra iwsIa cnlaisssrItaiae enhn hworoeeleno
     echo '<br />';
 
 ### Decode the encoded string
@@ -37,8 +39,8 @@
 
 ### What if the pin doesn't match?
     echo $rot1->decode(124);
-    // Hh ertoaen d uvaoyc mwscfrhi r eisoan eoittfsamlsr eh ed ae dr d lwha e rhoda keosyhaes repsttCi ?oBt
-    //  bndsaaao arinsxu p fbcntteoyed tentd ah o bnatc rw.ihnie teos wu l edI Ma es ris.antts n 'al
+    // Hnauloetoeace alri e nicde corbsepa hb anrwc' syan d o C s Ias e tdt on sey awmloinh fhexi yp aMkwa
+    //  snvs nf rens traeaeo tefi.ettoe unsIro sr sad d? hi oodddt rsiah m trer ba eBslh.hiaatt tahu de
     exit;
 
     ?>

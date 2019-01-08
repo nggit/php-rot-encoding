@@ -39,8 +39,8 @@
 
 ### What if the pin doesn't match?
     echo $rot1->decode(124);
-    // Hnauloetoeace alri e nicde corbsepa hb anrwc' syan d o C s Ias e tdt on sey awmloinh fhexi yp aMkwa
-    //  snvs nf rens traeaeo tefi.ettoe unsIro sr sad d? hi oodddt rsiah m trer ba eBslh.hiaatt tahu de
+    // Hh ertoaen d uvaoyrhi r eisocemwscf n 'alaIdis.ants rw.ihie tes wes repsttCi t?ohattfsamlshran eoi
+    //  bnaftctento ah oedh xu p obcntteyndsaaao arinsB b dr d e ed aedI Ma res u t l sylwna e rhoda k
     exit;
 
     ?>

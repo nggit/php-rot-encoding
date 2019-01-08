@@ -29,7 +29,7 @@ class Rot
             $this->encoded .= "\3";
             $arr            = array();
             $str_len        = strlen($this->encoded);
-            $pin_str[$i]    = $pin_str[$i] + 2;
+            $pin_str[$i]    = ($pin_str[$i] + 2) * ceil($str_len / 10);
             $split_len      = ceil($str_len / $pin_str[$i]);
             $str_padded_len = $split_len * $pin_str[$i];
             $this->encoded .= str_repeat("\0", $str_padded_len - $str_len);
@@ -58,7 +58,7 @@ class Rot
             $i--;
             $arr         = array();
             $str_len     = strlen($str);
-            $pin_str[$i] = $pin_str[$i] + 2;
+            $pin_str[$i] = ($pin_str[$i] + 2) * ceil($str_len / 10);
             for ($j = 0; $j < $pin_str[$i]; $j++) {
                 $arr[$j] = ''; // define offset
             }

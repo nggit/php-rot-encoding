@@ -47,25 +47,29 @@ class Rot
 
     public function decode()
     {
-        $numargs = func_num_args();
-        if ($numargs == 1) {
-            $pin = str_split((string) func_get_arg(0));
-        } elseif ($numargs > 1) {
+        $pin_len = func_num_args();
+        if ($pin_len == 1) {
+            $pin     = str_split((string) func_get_arg(0));
+            $pin_len = count($pin);
+        } elseif ($pin_len > 1) {
             $pin = func_get_args();
         } else {
-            $pin = $this->pin;
+            $pin     = $this->pin;
+            $pin_len = count($pin);
         }
         $pin_arr = $pin;
         $str     = isset($this->encoded) ? $this->encoded : $this->str;
-        while ($pin_num = array_pop($pin_arr)) {
-            $arr      = array();
-            $str_len  = strlen($str);
-            $pin_num += 2;
-            for ($i = 0; $i < $pin_num; $i++) {
-                $arr[$i] = ''; // define offset
+        $i       = $pin_len;
+        while ($i > 0) {
+            $i--;
+            $arr     = array();
+            $str_len = strlen($str);
+            $pin_arr[$i] += 2;
+            for ($j = 0; $j < $pin_arr[$i]; $j++) {
+                $arr[$j] = ''; // define offset
             }
-            for ($j = 0; $j < $str_len; $j++) { 
-                $arr[$j % $pin_num] .= $str[$j];
+            for ($k = 0; $k < $str_len; $k++) { 
+                $arr[$k % $pin_arr[$i]] .= $str[$k];
             }
             $str = substr(rtrim(implode($arr)), 0, -1);
         }

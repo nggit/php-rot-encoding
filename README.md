@@ -20,8 +20,8 @@
 
 ### Display the encoded string
     echo $encoded;
-    // Hsto tn te pe ke sde rns aetewos. sa deon l uor .aa  rsnthhacbtatapCdl xs edr a s rhscdMermdn oawyaeiyd
-    //  avih'id o ienayrthtta mtc?ff i but tohe u b deoBfra iwsIa cnlaisssrItaiae enhn hworoeeleno
+    // Hsst hbboeeBp alxanI l. bi torsu.aiadrtftrotwoeu?c ina ata reoysh atkwancdost r au i 'twie nsr t ah
+    //  m idrfyesi vo d sneetr etp ey aeeednas fhtI eeMachhdnaowls er n l s hs nctdamea dnCihosderaoo
     echo '<br />';
 
 ### Decode the encoded string
@@ -39,8 +39,8 @@
 
 ### What if the pin doesn't match?
     echo $rot1->decode(124);
-    // Hh ertoaen d uvaoyrhi r eisocemwscf n 'alaIdis.ants rw.ihie tes wes repsttCi t?ohattfsamlshran eoi
-    //  bnaftctento ah oedh xu p obcntteyndsaaao arinsB b dr d e ed aedI Ma res u t l sylwna e rhoda k
+    // Hh ertoaen d uvaoyc mwscfrhi r eisoan eoittfsamlsr eh ed ae dr d lwha e rhoda keosyhaes repsttCi ?oBt
+    //  bndsaaao arinsxu p fbcntteoyed tentd ah o bnatc rw.ihnie teos wu l edI Ma es ris.antts n 'al
     exit;
 
     ?>
